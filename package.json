@@ -38,7 +38,7 @@
     "web3": "^1.6.1"
   },
   "scripts": {
-    "client": "craco  start",
+    "client": "craco  start --mode development",
     "server": "cd backend & npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "craco test",
@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
+    "craco-plugin-env": "^1.0.5",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
