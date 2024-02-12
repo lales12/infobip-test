@@ -10,9 +10,11 @@ import WalletProvider from './components/providers/WalletProvider';
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <PresaleProvider>
-        <App />
-      </PresaleProvider>
+      <WalletProvider>
+        <PresaleProvider>
+          <App />
+        </PresaleProvider>
+      </WalletProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')

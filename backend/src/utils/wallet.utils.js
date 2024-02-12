@@ -240,7 +240,7 @@ class Wallet {
             });
             return result.data.data
         } catch (error) {
-            // console.log(error)
+
             return {error:error}
         }
     }

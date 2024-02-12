@@ -16,7 +16,6 @@ import {SERVER_URL} from "../../constants/env";
 const { TabPane } = Tabs;
 
 function WalletPortfolio(props) {
-
   const [t,i18n] = useTranslation();
   const [modalShow,setModalShow] = useState(false);
 
@@ -34,6 +33,7 @@ function WalletPortfolio(props) {
 
   const OperationsSlot = {
     left: <p className="text-3xl myColor1 mx-8">{t("Assets")}</p>,
+    center: <p className="text-3xl myColor1 mx-8">{t("Coin price")}</p>,
     right: <Input size="small" placeholder={t('Search')} prefix={<SearchOutlined />} className="rounded-lg py-1 px-5 search"/>,
   };
 
@@ -81,7 +81,27 @@ function WalletPortfolio(props) {
                   </Col>
                 </Row>
               </TabPane>
-              <TabPane tab={t("Collectibles")} key="2" disabled >
+
+              <TabPane tab={t("CoinPrice")} key="2" >
+                <Row className="text-gray-500">
+                  <Col span={6}>{t("Name")}</Col>
+                  <Col span={6} className="text-left">{t("Price")}</Col>
+                  <Col span={6} className="text-left">{t("Price change")}</Col>
+                </Row>
+                {
+                  props.coinList.map((item,idx)=>(
+                    <Row className="mt-2 text-lg myColor1" key={idx}>
+                      <Col span={6}>
+                        {item.symbol}
+                      </Col>
+                      <Col span={6} className="text-left">{`$ ${parseFloat(item.price).toFixed(5)}`}</Col>
+                      <Col span={6} className="text-left">{`${parseFloat(item.percent).toFixed(2)}`}</Col>
+                    </Row>
+                  ))
+                }
+              </TabPane>
+
+              <TabPane tab={t("Collectibles")} key="3" disabled >
                 {t("No Collectibles")}
               </TabPane>
             </Tabs>
