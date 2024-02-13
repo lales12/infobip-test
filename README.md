@@ -31,3 +31,7 @@ My mayor concern is the security of the stored wallet key in plain text. This is
 
 The database env variable was wrong. The correct variable is `DB_HOST` instead of `HOST`.
 
+#### Infrastructure
+One thing that I really miss is a container for dependency injection for the services. This helps to avoid the hardcode of the dependencies and makes the code more maintainable. This also helps to avoid the spread of the dependencies and makes the code more testable.
+
+Other pattern than I miss is some cqrs and ports and adapters pattern. The CQRS helps split the uses cases and keep the use case self contained. I the other hand if we apply the ports and adapters patterns help to have separate the business logic from the infrastructure logic avoiding the coupling between the business logic and the infrastructure logic.
